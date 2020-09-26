@@ -1,0 +1,9 @@
+1.1
+
+SELECT MAX(S.age)
+FROM Student S
+WHERE (S.major = ‘History’)
+OR S.snum IN (SELECT E.snum
+FROM Class C, Enrolled E, Faculty F
+WHERE E.cname = C.name AND C.fid = F.fid
+AND F.fname = ‘I.Teach’ )
